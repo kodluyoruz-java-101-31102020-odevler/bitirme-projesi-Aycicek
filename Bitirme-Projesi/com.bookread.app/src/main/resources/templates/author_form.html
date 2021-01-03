@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create New Authors</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body style= "background-color: #CFF3EC">
+	<div class="container text-center">
+		<div>
+			<hr>
+			<hr>
+			<h1>New Authors Add</h1>
+		</div>
+
+		<form th:action="@{/authors/save}" th:object="${author}" method="post"
+			style="max-width: 600px; margin: 0 auto;">
+			<div class="m-3">
+				<div class="form-group row">
+					<label class="col-form-label col-sm-4">Author Full Name</label>
+					<div class="col-sm-8">
+						<input type="text" th:field="*{author_full_name}"
+							class="form-control" required></input>
+					</div>
+				</div>
+				<div class="text-center p-3">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+</body>
+</html>

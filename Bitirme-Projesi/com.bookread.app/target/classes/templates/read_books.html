@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List ReadBook</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body style="background-color: #CFF3EC">
+	<div class="container">
+		<div>
+			<hr>
+			<hr>
+			<h1>ReadBook List</h1>
+		</div>
+		<br>
+			<h1 style="color:#005578 " >Total Number Of Books : [[${count}]]</h1>
+		<br>
+		<form class="form-inline my-2 my-lg-0"
+			th:action="@{/showSearchResult}" method="POST">
+			<input class="form-control mr-sm-4" name="searchWord" id="searchWord"
+				th:value="*{searchWord}" type="text"
+				placeholder="Book Name, Author, Publisher..." aria-label="Search"
+				size="23px" required>
+			<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+		</form>
+		<br>
+
+
+		<div class=" container text-center ">
+			<table class="table table-bordered">
+				<thead class="thead-dark">
+					<th>ID</th>
+					<th>Book Name</th>
+					<th>Author Name</th>
+					<th>Publisher</th>
+					<th>Number of Page</th>
+					<th>How Many Star</th>
+					<th></th>
+				</thead>
+
+
+				<tbody>
+					<th:block th:each="read_book: ${listReadBooks}">
+						<tr>
+							<td>[[${read_book.id}]]</td>
+							<td>[[${read_book.book_name}]]</td>
+							<td>[[${read_book.author.author_full_name}]]</td>
+							<td>[[${read_book.publisher}]]</td>
+							<td>[[${read_book.number_of_page}]]</td>
+							<td>[[${read_book.how_many_star}]]</td>
+							<td><a th:href="@{'/read_books/edit/' + ${read_book.id}}"
+								class="btn btn-info"> <i class="fas fa-edit"></i> Edit
+							</a> <a th:href="@{'/read_books/delete/' + ${read_book.id}}"
+								class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+									Delete</a></td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>

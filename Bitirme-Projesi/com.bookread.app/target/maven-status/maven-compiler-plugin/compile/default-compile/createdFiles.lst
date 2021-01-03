@@ -1,0 +1,7 @@
+com\bookread\app\controller\AppController.class
+com\bookread\app\model\Authors.class
+com\bookread\app\model\ReadBook.class
+com\bookread\app\Application.class
+com\bookread\app\controller\AuthorsController.class
+com\bookread\app\repository\AuthorsRepository.class
+com\bookread\app\repository\ReadBookRepository.class
